@@ -1,0 +1,39 @@
+apply plugin: 'android'
+
+android {
+    compileSdkVersion 19
+    buildToolsVersion "19.1.0"
+
+    defaultConfig {
+        applicationId "com.example.shixu.barberclient"
+        minSdkVersion 14
+        targetSdkVersion 19
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            runProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    productFlavors {
+
+        arm {
+            ndk {
+                abiFilters "armeabi-v7a","armeabi","x86"
+            }
+        }
+
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.github.eluleci:flatui:2.0.2'
+    compile 'com.github.gabrielemariotti.cards:library:1.7.3'
+    compile 'com.android.support:appcompat-v7:19.+'
+    compile 'com.android.support:support-v13:19.0.+'
+    compile files('G:/Workspace/Android/aha/BarberClient/library/jpush-sdk-release1.6.3.jar')
+    compile files('libs/volley.jar')
+}

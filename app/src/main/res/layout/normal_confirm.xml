@@ -1,0 +1,148 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:flatui="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv1"
+        android:text="您有新的订单"
+        android:textSize="35sp"
+        android:gravity="center"
+        android:layout_marginTop="47dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_quick_cusname_show"
+        android:text="姓名："
+        android:textSize="30sp"
+        android:layout_below="@+id/tv1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="51dp"
+        android:layout_marginTop="20dp" />
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_quick_cusname"
+        android:text="小李子"
+        android:textSize="25sp"
+        android:layout_toEndOf="@+id/tv_quick_cusname_show"
+        android:layout_marginRight="36dp"
+        android:layout_alignTop="@+id/tv_quick_cusname_show"
+        />
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_quick_phone_show"
+        android:text="电话："
+        android:textSize="30sp"
+        android:layout_below="@+id/tv_quick_cusname"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="51dp"
+        android:layout_marginTop="20dp" />
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_phone"
+        android:text="18635347031"
+        android:textSize="24sp"
+        android:layout_toEndOf="@+id/tv_quick_phone_show"
+        android:layout_alignBottom="@+id/tv_quick_phone_show"
+        android:layout_toRightOf="@+id/tv_quick_phone_show" />
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_quick_sex_show"
+        android:text="性别："
+        android:textSize="30sp"
+        android:layout_below="@+id/tv_quick_phone_show"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="51dp"
+        android:layout_marginTop="20dp" />
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_sex"
+        android:text="呵呵"
+        android:textSize="24sp"
+        android:layout_toEndOf="@+id/tv_quick_phone_show"
+        android:layout_alignBaseline="@+id/tv_quick_sex_show"
+        android:layout_alignBottom="@+id/tv_quick_sex_show"
+        />
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_quick_distance_show"
+        android:text="距离："
+        android:textSize="30sp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/tv_quick_sex_show"
+        android:layout_alignLeft="@+id/tv_quick_sex_show"
+        android:layout_alignStart="@+id/tv_quick_sex_show" />
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_distance"
+        android:text="300米"
+        android:textSize="24sp"
+        android:layout_toEndOf="@+id/tv_quick_phone_show"
+        android:layout_alignBottom="@+id/tv_quick_distance_show"
+        android:layout_alignLeft="@+id/tv_sex"
+        android:layout_alignStart="@+id/tv_sex" />
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_quick_time_show"
+        android:text="时间："
+        android:textSize="30sp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/tv_quick_distance_show"
+        android:layout_alignLeft="@+id/tv_quick_sex_show"
+        android:layout_alignStart="@+id/tv_quick_sex_show" />
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_time"
+        android:text="2014年8月20日"
+        android:textSize="19sp"
+        android:layout_toEndOf="@+id/tv_quick_time_show"
+        android:layout_alignBottom="@+id/tv_quick_time_show"
+        android:layout_toRightOf="@+id/tv_quick_time_show" />
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_quick_appendix_show"
+        android:text="备注："
+        android:textSize="30sp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/tv_quick_time_show"
+        android:layout_alignLeft="@+id/tv_quick_sex_show"
+        android:layout_alignStart="@+id/tv_quick_sex_show" />
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_appendix"
+        android:text="哇咔咔"
+        android:textSize="19sp"
+        android:layout_toEndOf="@+id/tv_quick_time_show"
+        android:layout_alignBottom="@+id/tv_quick_appendix_show"
+        android:layout_alignRight="@+id/tv_quick_cusname"
+        android:layout_alignEnd="@+id/tv_quick_cusname" />
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="确定"
+        android:id="@+id/btn_normal_receive"
+        android:layout_below="@+id/tv_quick_appendix_show"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp" />
+</RelativeLayout>
