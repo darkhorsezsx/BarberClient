@@ -22,8 +22,7 @@
 
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="发型"
-        android:id="@+id/tv_babaer_name_history"
-
+        android:id="@+id/tv_history_hairstyle"
         android:layout_marginLeft="17dp"
         android:layout_alignTop="@+id/iv_history_icon"
         android:layout_toRightOf="@+id/iv_history_icon"/>
@@ -32,11 +31,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="理发师"
-        android:id="@+id/tv_hair_style_history"
+        android:text="客户"
+        android:id="@+id/tv_history_customer"
 
-        android:layout_alignTop="@+id/tv_babaer_name_history"
-        android:layout_toRightOf="@+id/tv_babaer_name_history"
+        android:layout_alignTop="@+id/tv_history_hairstyle"
+        android:layout_toRightOf="@+id/tv_history_hairstyle"
         android:layout_marginLeft="20dp"/>
 
     <TextView
@@ -46,8 +45,8 @@
         android:text="地址:修正路1236号洗剪吹理发店"
         android:id="@+id/tv_history_address"
         android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/tv_babaer_name_history"
-        android:layout_alignStart="@+id/tv_babaer_name_history"/>
+        android:layout_alignLeft="@+id/tv_history_hairstyle"
+        android:layout_alignStart="@+id/tv_history_hairstyle"/>
 
     <RatingBar
         android:layout_width="wrap_content"
@@ -61,17 +60,7 @@
         android:layout_marginTop="8dp"/>
 
 
-    <com.cengalabs.flatui.views.FlatButton
-        android:layout_width="50dp"
-        android:layout_height="35dp"
-        android:text="再约"
-        android:textSize="13sp"
-        android:id="@+id/btn_history_book"
 
-        android:layout_centerVertical="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="5dp"/>
 
 </RelativeLayout>
 

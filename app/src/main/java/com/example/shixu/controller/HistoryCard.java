@@ -1,4 +1,4 @@
-package com.example.shixu.barberclient;
+package com.example.shixu.controller;
 
 import android.content.Context;
 import android.view.View;
@@ -6,6 +6,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+
+import com.example.shixu.barberclient.R;
 
 import it.gmariotti.cardslib.library.internal.Card;
 
@@ -15,7 +17,7 @@ import it.gmariotti.cardslib.library.internal.Card;
 
 public class HistoryCard extends Card {
     ImageView mIcon;
-    TextView mBabarName;
+    TextView mCustomerName;
     TextView mHairStyle;
     TextView mLocation;
     RatingBar mRatingBar;
@@ -34,8 +36,8 @@ public class HistoryCard extends Card {
     public void setupInnerViewElements(ViewGroup parent, View view) {
         super.setupInnerViewElements(parent, view);
 
-        mBabarName = (TextView)parent.findViewById(R.id.tv_babaer_name_history);
-        mHairStyle = (TextView)parent.findViewById(R.id.tv_hair_style_history);
+        mCustomerName = (TextView)parent.findViewById(R.id.tv_history_customer);
+        mHairStyle = (TextView)parent.findViewById(R.id.tv_history_hairstyle);
         mLocation = (TextView)parent.findViewById(R.id.tv_history_address);
         mIcon = (ImageView)parent.findViewById(R.id.iv_history_icon);
         mRatingBar = (RatingBar)parent.findViewById(R.id.ratingBar_history);

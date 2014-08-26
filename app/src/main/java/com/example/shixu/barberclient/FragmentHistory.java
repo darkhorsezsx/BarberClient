@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.shixu.controller.HistoryCard;
+
 import java.util.ArrayList;
 
 import it.gmariotti.cardslib.library.internal.Card;
