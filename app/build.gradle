@@ -34,6 +34,7 @@ dependencies {
     compile 'com.github.gabrielemariotti.cards:library:1.7.3'
     compile 'com.android.support:appcompat-v7:19.+'
     compile 'com.android.support:support-v13:19.0.+'
-    compile files('G:/Workspace/Android/aha/BarberClient/library/jpush-sdk-release1.6.3.jar')
+    compile 'com.google.code.gson:gson:2.3'
     compile files('libs/volley.jar')
+    compile files('G:/Workspace/Android/aha/BarberClient/library/jpush-sdk-release1.6.3.jar')
 }

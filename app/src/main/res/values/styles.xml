@@ -2,9 +2,12 @@
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="android:Theme.Holo.Light">
+        <!--
         <item name="android:windowActionBarOverlay">true</item>
-        <item name="android:actionBarStyle">@style/action_bar_theme</item>
+
         <item name="android:actionMenuTextColor">#fff</item>
+        -->
+        <item name="android:actionBarStyle">@style/action_bar_theme</item>
     </style>
     <style name="dashboard">
         <item name="android:numColumns">2</item>
@@ -18,6 +21,14 @@
     <style name="custom_actionbar_title" parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Title">
         <item name="android:textColor">#fff</item>
         <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="timeText">
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:padding">10dp</item>
+
+        <item name="android:background">@drawable/time_string_background</item>
     </style>
 
 </resources>

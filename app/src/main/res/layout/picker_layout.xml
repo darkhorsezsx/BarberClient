@@ -1,0 +1,61 @@
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="15dp"
+    >
+    <com.example.jiaqining.mytimepicker.Clockview
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/amView"
+
+        />
+    <com.example.jiaqining.mytimepicker.ClockViewPM
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/pmView"
+        android:visibility="gone"
+        />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:id="@+id/btnPanel"
+    android:layout_marginTop="20dp"
+    android:layout_below="@+id/amView">
+    <Button
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:text="上午"
+        android:id="@+id/btnAM"
+     />
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="确定时间"
+        android:id="@+id/btnConfirm"/>
+
+    <Button
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:text="下午"
+        android:id="@+id/btnPM"
+        android:layout_gravity="right"/>
+</LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="lala"
+        android:id="@+id/tv1"
+        android:layout_below="@+id/btnPanel"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="25dp"/>
+
+</RelativeLayout>

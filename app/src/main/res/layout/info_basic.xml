@@ -62,7 +62,6 @@
         android:layout_marginBottom="47dp" />
 
     <com.cengalabs.flatui.views.FlatTextView
-
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"

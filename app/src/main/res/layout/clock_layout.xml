@@ -1,0 +1,128 @@
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="15dp"
+    >
+    <com.example.shixu.modles.Clockview
+        android:layout_width="260dp"
+        android:layout_height="260dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/amView"
+
+        />
+    <com.example.shixu.modles.ClockViewPM
+        android:layout_width="260dp"
+        android:layout_height="260dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/pmView"
+        android:visibility="gone"
+        />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="33dp"
+        android:id="@+id/btn_confirm"
+        android:text="确定"
+        android:gravity="center"
+        android:layout_alignBottom="@+id/amView"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/rect_background"
+        android:textColor="#fff"
+
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="33dp"
+        android:textSize="16sp"
+        android:text="上午"
+        android:textColor="#fff"
+        android:gravity="center"
+        android:background="@drawable/rect_background"
+        android:id="@+id/tv_am"
+        android:clickable="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="33dp"
+        android:textSize="16sp"
+        android:text="下午"
+        android:clickable="true"
+        android:textColor="#fff"
+        android:background="@drawable/rect_background"
+        android:gravity="center"
+        android:id="@+id/tv_pm"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"/>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/amView"
+    android:layout_marginTop="24dp"
+    android:id="@+id/et_panel">
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height= "wrap_content"
+        android:id="@+id/et_time"
+        android:enabled="false"
+        android:hint="所选时间段"
+        />
+    <ImageButton
+        android:id="@+id/btn_add"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@drawable/add"
+        android:background="@null"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="5dp"
+        android:visibility="gone"/>
+</RelativeLayout>
+<HorizontalScrollView
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/et_panel"
+    android:fillViewport="true"
+    android:layout_marginTop="15dp"
+   >
+    <GridLayout
+        android:isScrollContainer="true"
+        android:orientation="horizontal"
+        android:rowCount="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/grid_time"
+        android:layout_below="@+id/et_panel"
+
+        >
+    </GridLayout>
+</HorizontalScrollView>
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="33dp"
+        android:text="撤销"
+        android:id="@+id/btn_cancel"
+        android:gravity="center"
+        android:background="@drawable/rect_background"
+        android:textColor="#fff"
+        android:layout_alignBottom="@+id/amView"
+        android:layout_alignParentLeft="true"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Next"
+        android:id="@+id/btn_nxt"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"/>
+
+
+</RelativeLayout>

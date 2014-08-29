@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="background_color">#f555</color>
+    <color name="marker_color">#afff</color>
+    <color name="text_color">#afff</color>
+    <color name="light_blue">#64ffda</color>
+</resources>

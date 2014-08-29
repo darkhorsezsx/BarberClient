@@ -111,7 +111,7 @@
         android:layout_height="wrap_content"
         android:text="忍痛放弃"
         android:id="@+id/btn_quick_reject"
+        android:layout_toEndOf="@+id/tv_quick_distance_show"
         android:layout_alignTop="@+id/btn_quick_receive"
-        android:layout_alignRight="@+id/tv_quick_cusname"
-        android:layout_alignEnd="@+id/tv_quick_cusname" />
+        android:layout_toRightOf="@+id/tv_quick_distance_show" />
 </RelativeLayout>

@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import cn.jpush.android.api.JPushInterface;
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.CardHeader;
 import it.gmariotti.cardslib.library.view.CardView;
@@ -16,11 +17,35 @@ import it.gmariotti.cardslib.library.view.CardView;
 public class MyActivity extends Activity {
 
     boolean isFirstIn;
+    @Override
+    protected void onResume() {
+        super.onResume();
+        JPushInterface.onResume(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        JPushInterface.onPause(this);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my);
+
+        // To ensure firt in to show the welcome page
+
+        SharedPreferences preferences = getSharedPreferences("com.cuthead.app.sp",MODE_PRIVATE);
+        isFirstIn = preferences.getBoolean("isFirstIn",true);
+        if (isFirstIn){
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.putBoolean("isFirstIn",false);
+            editor.commit();
+            Intent intent = new Intent(this,WelcomeActivity.class);
+            startActivity(intent);
+
+        }
 
         Card timecard = new Card(MyActivity.this,R.layout.activity_card_time);
         CardHeader timeheader = new CardHeader(MyActivity.this);
@@ -30,7 +55,8 @@ public class MyActivity extends Activity {
         timecardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(MyActivity.this,SetTimeActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -46,17 +72,7 @@ public class MyActivity extends Activity {
                 startActivity(intent);
             }
         });
-        // To ensure firt in to show the welcome page
 
-        SharedPreferences preferences = getSharedPreferences("com.cuthead.app.sp",MODE_APPEND);
-        isFirstIn = preferences.getBoolean("isFirstIn",true);
-        if (isFirstIn){
-            Intent intent = new Intent(this,WelcomeActivity.class);
-            startActivity(intent);
-            SharedPreferences.Editor editor = preferences.edit();
-            editor.putBoolean("isFirstIn",false);
-            editor.commit();
-        }
 
     }
 
