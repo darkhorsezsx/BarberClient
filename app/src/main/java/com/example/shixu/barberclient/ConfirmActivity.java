@@ -5,8 +5,12 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
-import com.example.shixu.modles.OrderAccept;
+import com.example.shixu.modles.NormalOrderPush;
+import com.example.shixu.modles.Order;
+import com.example.shixu.modles.QuickOrderPush;
+
 
 /**
  * Created by shixu on 2014/8/28.
@@ -21,45 +25,25 @@ public class ConfirmActivity extends Activity{
     String hair;
     String time;
     String remark;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.neworder_confirm);
+        setContentView(R.layout.activity_confirm);
         //  add data
         Intent intent = getIntent();
-        OrderAccept orderAccept = intent.getParcelableExtra("order");
-        name = orderAccept.getName();
-        orderID = orderAccept.getOrderID();
-        phone = orderAccept.getPhone();
-        sex = orderAccept.getSex();
-        hair = orderAccept.getHair();
-        time = orderAccept.getTime();
-        distance = Double.toHexString(orderAccept.getDistance());
-        remark = orderAccept.getRemark();
 
+        if (intent.getStringExtra("type").equals("quick")){
+            QuickOrderPush order = intent.getParcelableExtra("order");
+            orderID = order.getOrderID();
+            name = order.getCusname();
+            phone = order.getCusphone();
+            sex = order.getSex();
+            distance = order.getDistance();
 
+            Log.d("wtf","Confirm activity "+orderID);
 
-
-        if(distance.equals("0"))
-        {//       normal request
             Bundle bundle = new Bundle();
-            bundle.putString("oederID",orderID);
-            bundle.putString("name",name);
-            bundle.putString("phone",phone);
-            bundle.putString("sex",sex);
-            bundle.putString("hair",hair);
-            bundle.putString("time",time);
-            bundle.putString("remark",remark);
-            bundle.putBoolean("isnormal",true);
-            FragmentOrderSuccess fragmentOrderSuccess = new FragmentOrderSuccess();
-            fragmentOrderSuccess.setArguments(bundle);
-            FragmentManager fm = getFragmentManager();
-            FragmentTransaction ft = fm.beginTransaction();
-            ft.add(R.id.confirm_container,fragmentOrderSuccess).commit();
-        }
-        else
-        {//        quick request
-            Bundle bundle = new Bundle();
-            bundle.putString("oederID",orderID);
+            bundle.putString("orderID",orderID);
             bundle.putString("name",name);
             bundle.putString("phone",phone);
             bundle.putString("sex",sex);
@@ -70,7 +54,31 @@ public class ConfirmActivity extends Activity{
             FragmentManager fm = getFragmentManager();
             FragmentTransaction ft = fm.beginTransaction();
             ft.add(R.id.confirm_container,fragmentNewOrder).commit();
+        }else {
+            NormalOrderPush order = intent.getParcelableExtra("order");
+            orderID = order.getOrderID();
+            name = order.getCusname();
+            phone = order.getCusphone();
+            sex = order.getSex();
+            hair = order.getHairstyle();
+            time = order.getTime();
+
+            Bundle bundle = new Bundle();
+            bundle.putString("oederID",orderID);
+            bundle.putString("name",name);
+            bundle.putString("phone",phone);
+            bundle.putString("sex",sex);
+            bundle.putString("hair",hair);
+            bundle.putString("time",time);
+            bundle.putBoolean("isnormal",true);
+            FragmentOrderSuccess fragmentOrderSuccess = new FragmentOrderSuccess();
+            fragmentOrderSuccess.setArguments(bundle);
+            FragmentManager fm = getFragmentManager();
+            FragmentTransaction ft = fm.beginTransaction();
+            ft.add(R.id.confirm_container,fragmentOrderSuccess).commit();
         }
+
+
 
     }
 }

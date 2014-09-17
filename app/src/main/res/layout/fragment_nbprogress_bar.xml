@@ -3,7 +3,7 @@
     xmlns:ProgressWheel="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.shixu.barberclient.NBProgressBarFragment"
+    tools:context="com.example.shixu.barberclient.SignUpProgressFragment"
     >
 
     <com.example.shixu.controller.ProgressWheel
@@ -11,7 +11,7 @@
         android:id="@+id/progress_wheel"
         android:layout_width="230dp"
         android:layout_height="230dp"
-        ProgressWheel:text="Loading..."
+        ProgressWheel:text="和服务器唠嗑,请稍后..."
         ProgressWheel:myColor="#222"
         ProgressWheel:textSize="14sp"
         ProgressWheel:rimColor="#330097D6"

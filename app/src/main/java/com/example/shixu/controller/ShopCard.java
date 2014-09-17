@@ -28,7 +28,7 @@ public class ShopCard extends Card {
         name = (TextView)parent.findViewById(R.id.tv_shopname);
         address = (TextView)parent.findViewById(R.id.tv_address);
 
-        name.setText(mShop.getName());
-        name.setText(mShop.getAddress());
+        name.setText(mShop.getShop());
+        address.setText(mShop.getAddress());
     }
 }

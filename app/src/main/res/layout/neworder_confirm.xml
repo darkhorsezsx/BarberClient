@@ -77,41 +77,23 @@
         android:layout_alignBaseline="@+id/tv_quick_sex_show"
         android:layout_alignBottom="@+id/tv_quick_sex_show"
         />
-    <TextView
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/tv_quick_distance_show"
-        android:text="距离："
-        android:textSize="30sp"
-        android:layout_marginTop="34dp"
-        android:layout_below="@+id/tv_quick_sex_show"
-        android:layout_alignLeft="@+id/tv_quick_sex_show"
-        android:layout_alignStart="@+id/tv_quick_sex_show" />
-    <TextView
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/tv_distance"
-        android:text="300米"
-        android:textSize="24sp"
-        android:layout_toEndOf="@+id/tv_quick_phone_show"
-        android:layout_alignBottom="@+id/tv_quick_distance_show"
-        android:layout_alignLeft="@+id/tv_sex"
-        android:layout_alignStart="@+id/tv_sex" />
+
     <Button
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:text="果断接受"
-        android:layout_marginTop="31dp"
         android:id="@+id/btn_quick_receive"
-        android:layout_below="@+id/tv_quick_distance_show"
-        android:layout_alignLeft="@+id/tv_quick_distance_show"
-        android:layout_alignStart="@+id/tv_quick_distance_show" />
+        android:layout_alignTop="@+id/btn_quick_reject"
+        android:layout_alignLeft="@+id/tv_quick_sex_show"
+        android:layout_alignStart="@+id/tv_quick_sex_show"/>
     <Button
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:text="忍痛放弃"
         android:id="@+id/btn_quick_reject"
         android:layout_toEndOf="@+id/tv_quick_distance_show"
-        android:layout_alignTop="@+id/btn_quick_receive"
-        android:layout_toRightOf="@+id/tv_quick_distance_show" />
+        android:layout_marginTop="64dp"
+        android:layout_below="@+id/tv_quick_sex_show"
+        android:layout_alignLeft="@+id/tv_sex"
+        android:layout_alignStart="@+id/tv_sex"/>
 </RelativeLayout>

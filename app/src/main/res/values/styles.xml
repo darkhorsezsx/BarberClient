@@ -9,12 +9,10 @@
         -->
         <item name="android:actionBarStyle">@style/action_bar_theme</item>
     </style>
-    <style name="dashboard">
-        <item name="android:numColumns">2</item>
-    </style>
+
 
     <style name="action_bar_theme" parent="@android:style/Widget.Holo.ActionBar">
-        <item name="android:background">#A600bfa5</item>
+        <item name="android:background">#A600bcd4</item>
         <item name="android:titleTextStyle">@style/custom_actionbar_title</item>
     </style>
 

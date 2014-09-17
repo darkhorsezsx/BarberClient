@@ -52,7 +52,7 @@ public class FragmentOrderSuccess extends Fragment {
         Bundle bundle = getArguments();
         isNormal = bundle.getBoolean("isnoemal");
         if(isNormal)
-        {            //normal request
+        {            //quick request
             name = bundle.getString("name");
             phone = bundle.getString("phone");
             sex = bundle.getString("sex");
@@ -68,9 +68,13 @@ public class FragmentOrderSuccess extends Fragment {
             tv_remark.setText(remark);
             tv_quick_distance_show.setVisibility(View.GONE);
             tv_distance.setVisibility(View.GONE);
+            tv_quick_time_show.setVisibility(View.GONE);
+            tv_time.setVisibility(View.GONE);
+            tv_quick_remark_show.setVisibility(View.GONE);
+            tv_remark.setVisibility(View.GONE);
         }
         else
-        {            //quick request
+        {            //normal request
             name = bundle.getString("name");
             phone = bundle.getString("phone");
             sex = bundle.getString("sex");
@@ -81,10 +85,8 @@ public class FragmentOrderSuccess extends Fragment {
             tv_sex.setText(sex);
             tv_phone.setText(phone);
             tv_distance.setText(distance);
-            tv_quick_time_show.setVisibility(View.GONE);
-            tv_time.setVisibility(View.GONE);
-            tv_quick_remark_show.setVisibility(View.GONE);
-            tv_remark.setVisibility(View.GONE);
+
+            tv_quick_distance_show.setVisibility(View.GONE);
         }
 
 

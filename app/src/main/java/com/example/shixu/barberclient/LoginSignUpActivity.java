@@ -5,6 +5,7 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
+import android.view.Window;
 
 /**
  * Created by shixu on 2014/8/18.
@@ -12,6 +13,8 @@ import android.os.Bundle;
 public class LoginSignUpActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
+        requestWindowFeature(Window.FEATURE_PROGRESS);
         setContentView(R.layout.activity_login);
 
         int flag = getIntent().getIntExtra("flag",1);   // sign up is 1,login is 0

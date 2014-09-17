@@ -36,7 +36,7 @@ public class FragmentNewOrder extends Fragment{
         tv_name = (TextView)  mView.findViewById(R.id.tv_quick_cusname);
         tv_phone = (TextView) mView.findViewById(R.id.tv_phone);
         tv_sex = (TextView) mView.findViewById(R.id.tv_sex);
-        tv_distance = (TextView) mView.findViewById(R.id.tv_distance);
+        //tv_distance = (TextView) mView.findViewById(R.id.tv_distance);
         btn_sure = (Button) mView.findViewById(R.id.btn_quick_receive);
         btn_cancle = (Button) mView.findViewById(R.id.btn_quick_reject);
 
@@ -47,17 +47,16 @@ public class FragmentNewOrder extends Fragment{
         distance = bundleget.getString("distance");
         orderID = bundleget.getString("orderID");
         isNormal = bundleget.getBoolean("isnormal");
-
         tv_name.setText(name);
         tv_phone.setText(phone);
-        tv_distance.setText(distance);
+        //tv_distance.setText(distance);
         tv_sex.setText(sex);
 
         btn_sure.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Bundle bundle = new Bundle();
-                bundle.putString("oederID",orderID);
+                bundle.putString("orderID",orderID);
                 bundle.putString("name",name);
                 bundle.putString("phone",phone);
                 bundle.putString("sex",sex);

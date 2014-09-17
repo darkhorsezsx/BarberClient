@@ -8,6 +8,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -16,8 +18,10 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
 import com.example.shixu.controller.CustomRequest;
+import com.example.shixu.controller.ProgressWheel;
 import com.example.shixu.controller.ShopCard;
 import com.example.shixu.modles.Shop;
+import com.example.shixu.modles.UrlConstance;
 import com.google.gson.Gson;
 
 import org.json.JSONArray;
@@ -44,10 +48,12 @@ public class FragmentInfoShop extends Fragment {
     double longitude;
     double latitude;
     RequestQueue queue;
-    String url  = "/get-near-shop/";
-    String ip = "http://204.152.218.52";
+    final String url  = UrlConstance.IP + UrlConstance.NEAR_SHOP;
     ArrayList<Card> cards;
     CardListView list;
+    ViewGroup empty_layout;
+    ProgressWheel pw;
+    Button btnBack;
 
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -55,7 +61,12 @@ public class FragmentInfoShop extends Fragment {
         // Inflate the layout for this fragment
         mView = inflater.inflate(R.layout.info_shop, container, false);
         list = (CardListView)mView.findViewById(R.id.shop_list);
+        empty_layout = (RelativeLayout)mView.findViewById(R.id.empty_list);
+        btnBack = (Button)mView.findViewById(R.id.btn_back);
+        pw = (ProgressWheel)mView.findViewById(R.id.pw_shop);
+        pw.spin();
 
+        Log.d("NET","info launch");
 
         Bundle bundle = getArguments();
         name = bundle.getString("name");
@@ -64,18 +75,36 @@ public class FragmentInfoShop extends Fragment {
         sex = bundle.getString("sex");
         latitude = bundle.getDouble("latitude");
         longitude = bundle.getDouble("longitude");
+
         queue = Volley.newRequestQueue(getActivity());                                                                          //request the shop around here
         Map<String, String> paras = new HashMap<String, String>();
         paras.put("latitude",Double.toString(latitude));
         paras.put("longitude",Double.toString(longitude));
-        CustomRequest req = new CustomRequest(Request.Method.POST, ip+url, paras, new Response.Listener<JSONObject>() {
+        CustomRequest req = new CustomRequest(Request.Method.POST,url, paras, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject json) {
                 try {
                     int code = json.getInt("code");
                     if (code == 100){
+                        String data = json.getString("data");
+                        if (data.equals("[]")){
+                            pw.stopSpinning();
+                            pw.setVisibility(View.GONE);
+                            empty_layout.setVisibility(View.VISIBLE);
+
+                            btnBack.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    getActivity().finish();
+                                }
+                            });
+                        }
+                        pw.stopSpinning();
+                        pw.setVisibility(View.GONE);
+                        list.setVisibility(View.VISIBLE);
                         phraseShopList(json.getString("data"));
                         list.setAdapter(new CardArrayAdapter(getActivity(),cards));
+                        Log.d("NET",json.toString());
                     }else {
                         Log.d("NET",json.toString());
                     }
@@ -99,8 +128,8 @@ public class FragmentInfoShop extends Fragment {
         try {
             cards = new ArrayList<Card>();
             JSONArray json = new JSONArray(str);
+            Gson gson = new Gson();
             for (int i =0;i < json.length();i++){
-                Gson gson = new Gson();
                 Shop shop = gson.fromJson(String.valueOf(json.getJSONObject(i)),Shop.class);
                 Card card = new ShopCard(getActivity(),shop);
                 card.setOnClickListener(new Card.OnCardClickListener() {
@@ -128,4 +157,6 @@ public class FragmentInfoShop extends Fragment {
             e.printStackTrace();
         }
     }
+
+
 }

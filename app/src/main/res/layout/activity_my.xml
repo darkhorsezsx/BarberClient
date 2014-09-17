@@ -4,29 +4,71 @@
     xmlns:card="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context=".MyActivity">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="160dp"
+    android:background="#00acc1">
 
-    <it.gmariotti.cardslib.library.view.CardView
-         android:id="@+id/card_time"
-         android:layout_width="match_parent"
-         android:layout_height="200dp"
-        android:layout_marginTop="49dp"
+    <ImageView
+        android:layout_width="85dp"
+        android:layout_height="85dp"
+        android:id="@+id/imageView"
+        android:layout_marginLeft="17dp"
+
+        android:src="@drawable/user_icon"
         android:layout_alignParentTop="true"
-        android:layout_marginRight="12dp"
-        android:layout_alignLeft="@+id/card_history"
-        android:layout_alignStart="@+id/card_history" />
-    <it.gmariotti.cardslib.library.view.CardView
-        android:id="@+id/card_history"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_below="@+id/card_time"
-        android:layout_marginLeft="12dp"
-        android:layout_marginRight="12dp"
-        android:layout_marginTop="12dp"/>
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Name"
+        android:textColor="#fff"
+        android:id="@+id/tv_name"
+        android:layout_alignTop="@+id/imageView"
+        android:layout_toRightOf="@+id/imageView"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="-2dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Address:xxx"
+        android:id="@+id/tv_shop"
+        android:textColor="#fff"
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/tv_name"
+        android:layout_alignLeft="@+id/tv_name"
+        android:layout_alignStart="@+id/tv_name"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Phone:"
+        android:textColor="#fff"
+        android:id="@+id/tv_phone"
+        android:layout_below="@+id/tv_shop"
+        android:layout_alignLeft="@+id/tv_shop"
+        android:layout_alignStart="@+id/tv_shop"
+        android:layout_marginTop="5dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Time:"
+        android:textColor="#fff"
+        android:id="@+id/tv_time"
+        android:layout_alignBottom="@+id/imageView"
+        android:layout_alignLeft="@+id/tv_phone"
+        android:layout_alignStart="@+id/tv_phone"/>
+</RelativeLayout>
 
 
 

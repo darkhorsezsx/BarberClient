@@ -36,5 +36,5 @@ dependencies {
     compile 'com.android.support:support-v13:19.0.+'
     compile 'com.google.code.gson:gson:2.3'
     compile files('libs/volley.jar')
-    compile files('G:/Workspace/Android/aha/BarberClient/library/jpush-sdk-release1.6.3.jar')
+    compile files('D:/androidproject/BarberClient/library/jpush-sdk-release1.6.3.jar')
 }

@@ -29,7 +29,7 @@ public class PickerLayout extends RelativeLayout {
     Button btnNext;
     ViewGroup grid;
     ViewGroup editPanel;
-    StringBuilder time = new StringBuilder();
+    String time = "";
 
     boolean isAm = true;
     boolean isPm = false;
@@ -91,11 +91,12 @@ public class PickerLayout extends RelativeLayout {
                 paramsC.addRule(RelativeLayout.ALIGN_BOTTOM,R.id.amView);
                 cancelBtn.setLayoutParams(paramsC);
 
-
+                /*
                 isStartTimeSet = false;
                 etTime.setText("");
                 startTimeMark = -1;
                 endTimeMark = -1;
+                */
             }
         });
 
@@ -124,10 +125,12 @@ public class PickerLayout extends RelativeLayout {
                 paramsC.addRule(ALIGN_PARENT_LEFT);
                 cancelBtn.setLayoutParams(paramsC);
 
+                /*
                 isStartTimeSet = false;
                 etTime.setText("");
                 startTimeMark = -1;
                 endTimeMark = -1;
+                */
             }
         });
 
@@ -204,7 +207,7 @@ public class PickerLayout extends RelativeLayout {
                 confirmBtn.setVisibility(VISIBLE);
 
                 String val = etTime.getText().toString().substring(20);
-                time.append(val+"-");
+                time = time + val + "-";
 
                 TextView text = new TextView(new ContextThemeWrapper(getContext(),R.style.timeText));
                 text.setText(val);
@@ -221,6 +224,8 @@ public class PickerLayout extends RelativeLayout {
             }
         });
 
+
+        // Cancel button
         cancelBtn.setOnClickListener(new OnClickListener(){
             @Override
             public void onClick(View view) {
@@ -238,7 +243,7 @@ public class PickerLayout extends RelativeLayout {
     }
 
     public String getTime() {
-        return time.deleteCharAt(time.length()-1).toString();
+        return time.substring(0,time.length()-1);
     }
 
     private void selectedArea(int start,int end,boolean[] time){
