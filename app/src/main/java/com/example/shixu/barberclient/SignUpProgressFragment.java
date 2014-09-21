@@ -1,7 +1,9 @@
 package com.example.shixu.barberclient;
 
 import android.app.Fragment;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
@@ -93,7 +95,7 @@ public class SignUpProgressFragment extends Fragment {
                     Toast toast = Toast.makeText(getActivity(),"注册成功",Toast.LENGTH_SHORT);
                     toast.setGravity(Gravity.CENTER,0,0);
                     toast.show();
-
+                    saveInfo();
                     getActivity().finish();
                     //Intent intent = new Intent(getActivity(),MyActivity.class);
                     //startActivity(intent);
@@ -123,5 +125,16 @@ public class SignUpProgressFragment extends Fragment {
         return view;
     }
 
-
+    public void saveInfo(){
+        SharedPreferences sharedPreference = getActivity().getSharedPreferences("com.example.shixu.barberclient", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreference.edit();
+        editor.putString("name",name);
+        editor.putString("phone",phone);
+        editor.putString("password",password);
+        editor.putString("sex",sex);
+        editor.putString("shop",shop);
+        editor.putString("time",time);
+        editor.putBoolean("isLogin",true);
+        editor.commit();
+    }
 }

@@ -18,6 +18,7 @@
 
     <style name="custom_actionbar_title" parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Title">
         <item name="android:textColor">#fff</item>
+        <item name="android:layout_marginLeft">2dp</item>
         <item name="android:textSize">20sp</item>
     </style>
 
