@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -30,6 +31,10 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
+
+import cn.jpush.android.api.JPushInterface;
+import cn.jpush.android.api.TagAliasCallback;
 
 /**
  * Created by shixu on 2014/8/18.
@@ -39,8 +44,7 @@ public class FragmentLogin extends Fragment {
     private Button btn_login;
     private EditText et_login_phone;
     private EditText et_login_password;
-    private ViewGroup editLayout;
-    private ProgressWheel mProgressWheel;
+
     String phone;
     String password;
 
@@ -54,8 +58,7 @@ public class FragmentLogin extends Fragment {
         et_login_phone = (EditText)mView.findViewById(R.id.et_login_phone);
         et_login_password = (EditText)mView.findViewById(R.id.et_login_password);
         btn_login = (Button) mView.findViewById(R.id.btn_login);
-        editLayout = (RelativeLayout)mView.findViewById(R.id.login_edit_layout);
-        mProgressWheel = (ProgressWheel)mView.findViewById(R.id.pw_login);
+
 
 
         btn_login.setOnClickListener(new View.OnClickListener() {                                      //to log in
@@ -71,11 +74,10 @@ public class FragmentLogin extends Fragment {
                     Toast.makeText(getActivity(),"密码不能为空哦！",Toast.LENGTH_SHORT).show();;
                     return;
                 }
-
-                editLayout.setVisibility(View.GONE);
-                mProgressWheel.setVisibility(View.VISIBLE);
-                mProgressWheel.spin();
-
+                final ProgressDialog dialog = new ProgressDialog(getActivity());
+                dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+                dialog.setIndeterminate(true);
+                dialog.setMessage("Logging");
 
                 Map<String, String> paras = new HashMap<String, String>();
                 paras.put("phone",phone);
@@ -92,10 +94,17 @@ public class FragmentLogin extends Fragment {
                         }
                         Log.d("NET", json.toString());
                         if(code == 100){
-                            mProgressWheel.stopSpinning();
+                            dialog.dismiss();
                             Toast.makeText(getActivity(),"登陆成功",Toast.LENGTH_LONG).show();
-                           // Intent intent = new Intent(getActivity(),MyActivity.class);
-                            //startActivity(intent);
+                            JPushInterface.setAlias(getActivity(), phone, new TagAliasCallback() {
+                                @Override
+                                public void gotResult(int code, String alias, Set<String> tags) {
+                                    Log.d("push","code:"+code+" "+alias +" ");
+                                    if (code == 60020) {
+                                        Toast.makeText(getActivity(), "Jpush alias set error", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
                             getActivity().finish();
 
                         }else if (code == 202){
@@ -119,23 +128,16 @@ public class FragmentLogin extends Fragment {
                             switch (code) {
                                 case 803:
                                     Toast.makeText(getActivity(), "电话号码有误，检查格式", Toast.LENGTH_SHORT).show();
-                                    editLayout.setVisibility(View.VISIBLE);
-                                    mProgressWheel.setVisibility(View.GONE);
                                     break;
                                 case 804:
                                     Toast.makeText(getActivity(), "理发师尚未注册", Toast.LENGTH_SHORT).show();
-                                    editLayout.setVisibility(View.VISIBLE);
-                                    mProgressWheel.setVisibility(View.GONE);
                                     break;
                                 case 805:
                                     Toast.makeText(getActivity(), "密码不匹配，登陆失败", Toast.LENGTH_SHORT).show();
-                                    editLayout.setVisibility(View.VISIBLE);
-                                    mProgressWheel.setVisibility(View.GONE);
                                     break;
                             }
-                            mProgressWheel.stopSpinning();
-                            mProgressWheel.setVisibility(View.GONE);
-                            editLayout.setVisibility(View.VISIBLE);
+                            dialog.dismiss();
+
                         }
                     }
                 }, new Response.ErrorListener() {

@@ -82,8 +82,6 @@ public class FragmentSignUp extends Fragment {
          longitude = LocationUtil.getLongitude(getActivity());
 
         btn_next.setEnabled(false);
-        // TEST
-        test();
 
 
         et_phone.setOnFocusChangeListener(new View.OnFocusChangeListener() {
@@ -106,9 +104,10 @@ public class FragmentSignUp extends Fragment {
                                 if (code == 504) {
                                     Toast.makeText(getActivity(), "电话号码已注册,请登录or换一个号码", Toast.LENGTH_LONG).show();
                                     et_phone.setText("");
-                                } else {
-
+                                } else if (code == 100){
                                     setJpushAlias(phone);
+                                    Toast.makeText(getActivity(),"注册成功",Toast.LENGTH_LONG).show();
+                                    getActivity().finish();
                                 }
                             } catch (JSONException e) {
                                 e.printStackTrace();
@@ -210,8 +209,6 @@ public class FragmentSignUp extends Fragment {
         }
         return false;
     }
-
-
 
     /** Check the password validation : length longer than 8 ,must contain number and character
      * return 0 mean the password is valid

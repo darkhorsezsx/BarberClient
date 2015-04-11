@@ -22,10 +22,6 @@ import cn.jpush.android.api.JPushInterface;
 public class MyActivity extends Activity {
 
     boolean isLogIn;
-
-
-
-
     boolean isEditMode = false;
     SharedPreferences preferences;
     SharedPreferences.Editor editor;
@@ -50,13 +46,15 @@ public class MyActivity extends Activity {
         setContentView(R.layout.activity_my);
 
 
-        // To ensure firt in to show the welcome page
+        // To ensure first in to show the welcome page
         preferences = getSharedPreferences("com.cuthead.app.sp", MODE_PRIVATE);
         editor = preferences.edit();
         isLogIn = preferences.getBoolean("isLogin", false);
         if (!isLogIn) {
             Intent intent = new Intent(this, WelcomeActivity.class);
             startActivity(intent);
+            editor.putBoolean("isLogin",true);
+            editor.apply();
         }
 
 
@@ -78,16 +76,13 @@ public class MyActivity extends Activity {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         if (item.getItemId() == R.id.edit) {
-
             isEditMode = true;
             this.invalidateOptionsMenu();
         } else if(item.getItemId() == R.id.complete){
-
             isEditMode = false;
             this.invalidateOptionsMenu();
 
         }
-
         return super.onOptionsItemSelected(item);
     }
 
