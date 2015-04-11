@@ -9,51 +9,49 @@
         android:layout_height="wrap_content"
         android:id="@+id/tv1"
         android:text="您有新的订单"
-        android:textSize="35sp"
+        android:textSize="25sp"
         android:gravity="center"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="65dp" />
+        android:layout_marginTop="41dp"
+    />
+
+
     <TextView
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:id="@+id/tv_quick_cusname_show"
         android:text="姓名："
-        android:textSize="30sp"
+        android:textSize="20sp"
         android:layout_below="@+id/tv1"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginLeft="51dp"
+        android:layout_marginLeft="52dp"
         android:layout_marginTop="35dp" />
     <TextView
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:id="@+id/tv_quick_cusname"
         android:text="小李子"
-        android:textSize="25sp"
-        android:layout_toEndOf="@+id/tv_quick_cusname_show"
-        android:layout_marginRight="36dp"
-        android:layout_alignTop="@+id/tv_quick_cusname_show"
+        android:textSize="20sp"
+        android:layout_toRightOf="@id/tv_quick_cusname_show"
+        android:layout_below="@id/tv1"
+        android:layout_alignBaseline="@id/tv_quick_cusname_show"
         />
     <TextView
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:id="@+id/tv_quick_phone_show"
         android:text="电话："
-        android:textSize="30sp"
-        android:layout_below="@+id/tv_quick_cusname"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="51dp"
-        android:layout_marginTop="35dp" />
+        android:textSize="20sp"
+        android:layout_below="@+id/tv_quick_cusname_show"
+        android:layout_marginLeft="52dp"
+        android:layout_marginTop="20dp"
+/>
     <TextView
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:id="@+id/tv_phone"
         android:text="18635347031"
-        android:textSize="24sp"
-        android:layout_toEndOf="@+id/tv_quick_phone_show"
+        android:textSize="20sp"
         android:layout_alignBottom="@+id/tv_quick_phone_show"
         android:layout_toRightOf="@+id/tv_quick_phone_show" />
     <TextView
@@ -61,39 +59,38 @@
         android:layout_height="wrap_content"
         android:id="@+id/tv_quick_sex_show"
         android:text="性别："
-        android:textSize="30sp"
+        android:textSize="20sp"
         android:layout_below="@+id/tv_quick_phone_show"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="51dp"
-        android:layout_marginTop="35dp" />
+        android:layout_marginLeft="52dp"
+        android:layout_marginTop="20dp" />
     <TextView
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:id="@+id/tv_sex"
         android:text="呵呵"
-        android:textSize="24sp"
-        android:layout_toEndOf="@+id/tv_quick_phone_show"
-        android:layout_alignBaseline="@+id/tv_quick_sex_show"
+        android:textSize="20sp"
         android:layout_alignBottom="@+id/tv_quick_sex_show"
-        />
+        android:layout_alignLeft="@+id/tv_phone"
+        android:layout_alignStart="@+id/tv_phone"/>
 
     <Button
+        android:layout_marginTop="80dp"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:text="果断接受"
         android:id="@+id/btn_quick_receive"
-        android:layout_alignTop="@+id/btn_quick_reject"
-        android:layout_alignLeft="@+id/tv_quick_sex_show"
-        android:layout_alignStart="@+id/tv_quick_sex_show"/>
+        android:layout_below="@+id/tv_sex"
+        android:layout_alignRight="@+id/tv_quick_sex_show"
+        android:layout_alignEnd="@+id/tv_quick_sex_show"
+        android:layout_marginRight="23dp"
+        android:layout_marginEnd="23dp"/>
     <Button
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:text="忍痛放弃"
         android:id="@+id/btn_quick_reject"
-        android:layout_toEndOf="@+id/tv_quick_distance_show"
-        android:layout_marginTop="64dp"
+        android:layout_toRightOf="@id/btn_quick_receive"
         android:layout_below="@+id/tv_quick_sex_show"
-        android:layout_alignLeft="@+id/tv_sex"
-        android:layout_alignStart="@+id/tv_sex"/>
+        android:layout_alignBaseline="@id/btn_quick_receive"
+        />
 </RelativeLayout>

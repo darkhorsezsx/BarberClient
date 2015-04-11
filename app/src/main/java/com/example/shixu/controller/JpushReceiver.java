@@ -48,28 +48,32 @@ public class JpushReceiver extends BroadcastReceiver {
                     type = "normal";
                 }
 
-                Intent i = new Intent();
-                i.putExtra("type", type);
-                i.putExtra("order", order);
-                i.setClassName("com.example.shixu.barberclient", "com.example.shixu.barberclient.ConfirmActivity");
-                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-
-                NotificationManager mNotificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-                long when = System.currentTimeMillis();
-                Notification notification = new Notification(R.drawable.ic_notification, "Hello", when);
-                CharSequence contentTitle = "wtf";
-                CharSequence contentText = "wtf!";
-                PendingIntent contentIntent = PendingIntent.getActivity(context, 0, i, PendingIntent.FLAG_CANCEL_CURRENT);
-                notification.setLatestEventInfo(context, contentTitle, contentText, contentIntent);
-                notification.defaults |= Notification.DEFAULT_SOUND;
-                mNotificationManager.notify(1, notification);
-
-                context.startActivity(i);
+                sendNotification(context, type);
 
             } catch (JSONException e) {
                 Log.d("Phase json", "Pharse exception!");
             }
         }
+    }
+
+    private void sendNotification(Context context, String type) {
+        Intent i = new Intent();
+        i.putExtra("type", type);
+        i.putExtra("order", order);
+        i.setClassName("com.example.shixu.barberclient", "com.example.shixu.barberclient.ConfirmActivity");
+        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+        NotificationManager mNotificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        long when = System.currentTimeMillis();
+        Notification notification = new Notification(R.drawable.ic_notification, "Hello", when);
+        CharSequence contentTitle = "A new message";
+        CharSequence contentText = "wtf!";
+        PendingIntent contentIntent = PendingIntent.getActivity(context, 0, i, PendingIntent.FLAG_CANCEL_CURRENT);
+        notification.setLatestEventInfo(context, contentTitle, contentText, contentIntent);
+        notification.defaults |= Notification.DEFAULT_SOUND;
+        mNotificationManager.notify(1, notification);
+
+        context.startActivity(i);
     }
 
     private static String printBundle(Bundle bundle) {

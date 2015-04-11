@@ -32,7 +32,7 @@
         android:id="@+id/tv_quick_cusname"
         android:text="小李子"
         android:textSize="25sp"
-        android:layout_toEndOf="@+id/tv_success_cusname"
+        android:layout_toRightOf="@id/tv_success_cusname"
         android:layout_marginRight="36dp"
         android:layout_alignTop="@+id/tv_success_cusname"
         />
